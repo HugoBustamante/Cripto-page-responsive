@@ -1,0 +1,571 @@
+/*
+Convencion para comenzar a generar mis estilos del 1 al 5:
+1. Posicionamiento (Acá trabajamos la parte del posicionamiento en el layout)
+2. Modelo caja (Box model) (Acá trabajamos la parte del margin, padding, el tamaño, el wight, todo lo que tiene que ver con el modelo de caja.)
+3. Tipografia.
+4. Visuales. (Aqui agregamos efectos visuales que mejoran los estilos, como border shadown, border-radius,gradient, etc)
+5. Otros. (Agrego todo lo que se conoce como miselaniu u otros)
+*/
+
+:root{
+    /*Colores*/
+    --bitcoin-orange:#F7931A;
+    --soft-orange: #FFE9D5;
+    --secondary-blue: #1A9AF7;
+    --soft-blue: #E7F5FF;
+    --warm-black: #201E1C;
+    --black: #282623;
+    --grey: #BABABA;
+    --off-white: #FAF8F7;
+    --just-white: #FFFFFF;
+}
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+    scroll-behavior: smooth;/*Está linea me permite que al desplazarme por medio de un link a otro
+                            el scroll no sea suavecito y no instantaneo.*/
+}
+header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-width: 320px; /*El ancho no va a ser menor de 320px que es la dimensión más chica de los celulares.*/
+    height: 334px;
+    text-align: center;
+    background: linear-gradient(207.8deg, #201E1C 16.69%, #F7931a 100%);
+    background-size: 400% 400%;
+
+/*Para agregar una animación al fondo del header, no hace parte del curso*/
+-webkit-animation: bgAnimateBitcoin 20s ease infinite;
+-moz-animation: bgAnimateBitcoin 20s ease infinite;
+animation: bgAnimateBitcoin 20s ease infinite;
+}
+
+@-webkit-keyframes bgAnimateBitcoin {
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+@-moz-keyframes bgAnimateBitcoin {
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+@keyframes bgAnimateBitcoin {
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+/*Hasta aquí termina la animación*/
+header img{
+    width: 150px;
+    height: 24px;
+    margin-top: 60px;
+    align-self: center;
+}
+header .header--litle-container{
+    width: 90%;
+    min-width: 288px;
+    max-width: 900px;
+    height: 218px;
+    margin-top: 40px;
+    align-self: center;
+    text-align: center;
+}
+.header--litle-container h1{
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
+.header--litle-container p{
+    margin-top: 25px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--soft-orange);
+}
+.header--litle-container .header--button{
+    position: absolute;
+    /*left: calc(50% - 117px); /*el 50% es para que el botón se posicione justo en la mitad de la pantalla, pero no centrado como queremos. entonces hay que restarle a eso la mitad de lo que mide nuestro botón para correrlo más al centro. Esté era una forma para centrar el boton flotante*/
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 270px;
+    display: block;
+    margin-top: 35px;
+    padding: 15px;
+    width: 229px;
+    height: 48px;
+    background-color: var(--off-white);
+    /*Parate sombras:*/
+    box-shadow: 0px 4px 8px rgba(89, 73, 30, 0.16);
+    border: none;/*En caso de que ya existan bordes por defecto definidos*/
+    border-radius: 5px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--black);
+}
+.header--button span{
+    display: inline-block;
+    width: 13px;
+    height: 8px;
+    margin-left: 10px;
+    background-image: url('/assets/iconos/down-arrow.svg');
+}
+
+/*Cuerpo principal:*/
+main{
+    width: 100%;
+    height: auto; /*Le pondemos auto porque el mismo contenido va ir definiendo la altura de nuestros main.*/
+    background-color: var(--off-white);
+    min-width: 320px;
+}
+.main-exchange-container{
+    width: 100%;
+    height: auto;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.main-exchange-container .backgroundImg{
+    width: 200px;
+    height: 200px;
+    margin: 0px auto;
+    margin-bottom: 50px;
+    background-image: url("/assets/imagenes/bitcoin.png");
+    background-size: cover; /*Este cover se usa para expandir la imagen respecto a la dimensión del contenedor que en este caso seria el mismo figure.*/
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.main-exchange-container--title{
+    width: 90%;
+    min-width: 288px;
+    max-width: 900px;
+    margin: 0px auto;
+}
+
+.main-exchange-container h2{
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem; /*Probar eliminar para ver si funciona*/
+    color: var(--black);
+    margin-bottom: 30px;
+}
+.main-exchange-container p{
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6rem; /*Probar eliminar para ver si funciona*/
+    color: #757575;
+}
+
+.main-currency-table{
+    width: 70%;
+    min-width: 235px;
+    max-width: 500px;
+    height: 360px;
+    margin: 0px auto;
+    font-family: "inter", sans-serif;
+}
+.main-currency-table > .currency-table--title{
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    color: var(--bitcoin-orange);
+}
+
+.currency-table--container{
+    width: 90%;
+    min-width: 235px;
+    max-width: 300px;
+    height: 250px;
+    margin: 0 auto;
+}
+.currency-table--container table{
+    width: 100%;
+    height: 100%;
+}
+.currency-table--container table td{
+    width: 50%;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    color: var(--grey);
+    background-color: var(--just-white);
+}
+.currency-table--container .table__top-left{
+    border-radius: 15px 0 0 0;
+}
+.currency-table--container .table__top-right{
+    border-radius: 0 15px 0 0;
+}
+.currency-table--container .table__bottom-left{
+    border-radius: 0 0 0 15px;
+}
+.currency-table--container .table__bottom-right{
+    border-radius: 0 0 15px 0;
+}
+.currency-table--container .table__right{
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.7rem;
+    color: #757575;
+}
+.currency-table--container .down{
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url('/assets/iconos/trending-down1.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.currency-table--container .up{
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url('/assets/iconos/trending-up1.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.currency-table--date{
+    width: 200px;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 8px;
+    background-color: var(--soft-orange);
+    border-radius: 8px;
+}
+.currency-table--date p{
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    color: var(--warm-black);
+    width: max-content;
+    font-weight: 300;
+}
+
+/*Segunda tabla:*/
+.main-currency-table .comission-table--title{
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    color: #16d9;
+}
+.comission-table--container{
+    width: 90%;
+    min-width: 235px;
+    max-width: 300px;
+    height: 250px;
+    margin: 0 auto;
+}
+.comission-table--container table{
+    width: 100%;
+    height: 100%;
+}
+.comission-table--container table td{
+    width: 50%;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    color: var(--grey);
+    background-color: var(--just-white);
+}
+.comission-table--container .table__top-left{
+    border-radius: 15px 0 0 0;
+}
+.comission-table--container .table__top-right{
+    border-radius: 0 15px 0 0;
+}
+.comission-table--container .table__bottom-left{
+    border-radius: 0 0 0 15px;
+}
+.comission-table--container .table__bottom-right{
+    border-radius: 0 0 15px 0;
+}
+.comission-table--container .table__right{
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.7rem;
+    color: #757575;
+}
+.comission-table--date{
+    width: 200px;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 8px;
+    background-color: rgba(49, 164, 202, 0.404);;
+    border-radius: 8px;
+}
+.comission-table--date p{
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    color: var(--warm-black);
+    width: max-content;
+    font-weight: 300;
+}
+
+/*Seccion de las tarjetas:*/
+.main-product-detail{
+    position: relative;
+    width: 100%;
+    min-width: 320px;
+    height: auto;
+    padding: 20px 10px;
+    background-color: var(--warm-black);
+}
+.product-detail--batata-logo{
+    position: absolute;
+    width: 40px;
+    height: 25px;
+    background-image: url('/assets/imagenes/Group16.svg');
+    top: -10px;
+    left: calc(50% - 20px);
+}
+.product-detail--title{
+    width: 90%;
+    min-width: 288px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+}
+.product-detail--title h2{
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
+.product-detail--title p{
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #808080;
+}
+.product-detail--card{
+    width: 90%;
+    min-width: 288px;
+    max-width: 400px;
+    height: 150px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: var(--black);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);
+}
+.product-detail--card .clock,.eye,.dolar,.check{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/*Primer icono para la primera tarjeta:*/
+.product-detail--card .clock{
+    background-image: url('/assets/iconos/clock.svg');
+}
+/*Estilos para el titulo y el parrafo de cada tarjeta:*/
+.product--card-title{
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+    color: var(--just-white);
+}
+.product--card-body{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #808080;
+}
+/*agregamos los iconos para cada tarjeta:*/
+.product-detail--card .eye{
+    background-image: url('/assets/iconos/eye.svg');
+}
+.product-detail--card .dolar{
+    background-image: url('/assets/iconos/dollar-sign.svg');
+}
+.product-detail--card .check{
+    background-image: url('/assets/iconos/check-circle.svg');
+}
+
+/*Penultima sección donde está la imagen:*/
+.bitcoin-img--container{
+    width: 100%;
+    min-width: 280px;
+    height: 60vh;
+    background-image: url('/assets/imagenes/bitcoinbabyx2.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+.bitcoin-img--container h2{
+    padding-top: 60px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
+
+/*Seccion antes del footer, LOS PLANES:*/
+.main-plans-container{
+    width: 100%;
+    min-width: 320px;
+    padding: 65px 0;
+    text-align: center;
+}
+.plans--title{
+    width: 90%;
+    min-width: 288px;
+    height: auto;
+    margin: 0 auto;
+}
+.plans--title h2{
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--black  );
+}
+.plans--title p{
+    padding-top: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #757575;
+    padding-bottom: 50px;
+}
+/*Modificamos el contenedor de las tarjetas para generar un slider:*/
+.plans--container--slider{
+    display: flex;
+    height: 316px;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;/*la propiedad de css overscroll-behabior-x establece lo que hace un navegador cuando alcanza el límite de un área de desplazamiento en el eje x.*/
+    scroll-snap-type: x proximity;/*La propiedad CSS scroll-snap-type establece qué tan estrictamente se aplican los puntos de snap en el contenedor de desplazamiento en caso de que haya uno. Un snap seria como un ajuste imán, esto sería hacia donde se acomoda automaticamente el contenido. Como lo que aplicamos con la propiedad scroll-snap-align:, en la sección de abajo.*/
+    /*gap: 35px;/*Nos permite dar un espacio entre lineas. Es este caso buscabamos espaciar las targetas de planes*/
+
+}
+
+.plans-container--card{
+    position: relative;
+    scroll-snap-align: center;/*Con esta propiedad hacemos que las tarjetas al moverlas se queden en una posicion centrada del elemento (la tarjeta) en la que nos encontramos con el scroll.*/
+    width: 70%;
+    min-width: 190px;
+    max-width: 300px;
+    height: 250px;
+    margin: 50px 10px;
+    padding: 0 15px;
+    background-color: var(--just-white);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16);
+}
+
+.recommended{
+    position: absolute;
+    width: 120px;
+    height: 31px;
+    left: calc(50% - 60px);
+    top: -15px;
+    font-size: 1.2rem;
+    padding: 6px;
+    background-color: var(--bitcoin-orange);
+    border-radius: 8px;
+    color: var(--just-white);
+}
+.plan-card--title{
+    padding-top: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: black;
+}
+.plan-card--price{
+    padding: 5px 0;
+    font-size: 5.2rem;
+    font-weight: bold;
+    line-height: 5.2rem;
+    color: black;
+}
+.plan-card--price sup{
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: 500;
+    left: calc(50% - 46px);
+    top: 39px;
+}
+.plan-card--saving{
+    font-size: 1.2rem;
+    color: #757575;
+}
+.plan-card-action{
+    width: 150px;
+    height: 48px;
+    margin-top: 20px;
+    background-color: #FAF8F7;
+    font-family: 'DM Sans', sans-serif;
+    border: 2px solid var(--bitcoin-orange);
+    border-radius: 4px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+    color:var(--black);
+}
+.plan-card-action span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("./assets/iconos/arrow-right.svg");
+    vertical-align: text-bottom;
+}
+
+/*Footer*/
+footer{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: var(--bitcoin-orange);
+}
+footer section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+footer .left ul{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    list-style: none;
+}
+.left li{
+    margin: 10px 0;
+}
+.left a{
+    text-decoration: none;
+    color: var(--just-white);
+}
